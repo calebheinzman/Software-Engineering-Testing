@@ -4,7 +4,7 @@ For this assignment you will be tasked with testing the grading system. This sys
 of the grading system you have worked on for the past assignments. 
 
 There are two json files with all the user and course information. This information would typically be stored in an actual
-database but were stored in "users.json" and "courses.json" to help simplify this assignment.
+database but were stored in "Data/users.json" and "Data/courses.json" to help simplify this assignment.
 
 This program contains the following classes:
 - System
