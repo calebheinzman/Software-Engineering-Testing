@@ -14,12 +14,12 @@ class System():
         self.courses = self.load_course_db()
 
     def load_user_db(self):
-        with open('users.json') as f:
+        with open('Data/users.json') as f:
             data = json.load(f)
         return data
 
     def load_course_db(self):
-        with open('courses.json') as f:
+        with open('Data/courses.json') as f:
             data = json.load(f)
         return data
 

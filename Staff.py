@@ -4,7 +4,7 @@ import User
 class Staff(User.User):
 
     def update_course_db(self):
-        with open('courses.json', 'w') as fp:
+        with open('Data/courses.json', 'w') as fp:
             json.dump(self.all_courses, fp)
 
     def createAssignment(self,assignment_name, due_date, course):
