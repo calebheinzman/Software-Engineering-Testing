@@ -19,6 +19,21 @@ class Student(User.User):
         self.users[self.name]['courses'][course].update(submission)
         self.update_user_db()
 
+    def check_grades(self,course):
+        name = self.name
+        assignments = self.users[name]['courses'][course]
+        grades = []
+        for key in assignments:
+            grades.append([key, assignments[key]['grade']])
+        return grades
+
+    def view_assignments(self,course):
+        course = self.all_courses[course]['assignments']
+        assignments = []
+        for key in course:
+            assignments.append([key,course[key]['due_date']])
+        return assignments
+
     def check_ontime(self,submission_date,due_date):
         return True
 

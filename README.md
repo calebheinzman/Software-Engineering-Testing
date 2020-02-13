@@ -18,6 +18,10 @@ This program contains the following classes:
 There are two json files with all the user and course information. This information would typically be stored in an actual
 database but were stored in "Data/users.json" and "Data/courses.json" to help simplify this assignment.
 
+### Restore Data
+Everytime you modify the code, the data will be changed. Run RestoreData.py to restore the json files to the original
+dataset.
+
 ### System
 This is the main class which is used to manage the entire software. Below this class has "if '__name__' == '__main__':" statement 
 which contains the first lines run in a python program.
@@ -45,8 +49,32 @@ Professor inherits Staff and contains all functions relevant to acitvities the p
 
 For this assignment you will need to use Pytest to write tests for the software we have provided. You will need to have 10 total tests and I should be able to run them on my system. Here are the following functions you will need to test:
 
-1. login - System.py
-2. check_password - System.py
-3. change_grade - TA.py
-4. submit_assignment - Student.py
-5. check_ontime - Student.py
+### 1. login - System.py
+
+The login function takes a name and password and sets the user for the program. Verify that the correct user is created
+with this test, and te the json files to check that it adds the correct data to the user.
+
+### 2. check_password - System.py
+
+This function checks that the password is correct. Enter several different formats of passwords to verify that the 
+password returns correctly if the passwords are the same.
+
+### 3. change_grade - Staff.py
+
+This function will change the grade of a student and updates the database. Verify that the correct grade is changed on 
+the correct user.
+
+### 4. create_assignment Staff.py
+
+This function allows the staff to create a new assignment. Verify that an assignment is created with the correct due date
+in the correct course.
+
+### 5. add_student - Professor.py
+
+
+
+### 6. drop_student Professor.py
+### 7. submit_assignment - Student.py
+### 8. check_ontime - Student.py
+### 9. check_grades - Student.py
+### 10. view_assignments - Student.py

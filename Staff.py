@@ -7,7 +7,7 @@ class Staff(User.User):
         with open('Data/courses.json', 'w') as fp:
             json.dump(self.all_courses, fp)
 
-    def createAssignment(self,assignment_name, due_date, course):
+    def create_assignment(self,assignment_name, due_date, course):
         assignment = {
             assignment_name: {
                 'due_date': due_date
@@ -16,7 +16,16 @@ class Staff(User.User):
         self.all_courses[course]['assignments'].update(assignment)
         self.update_course_db()
 
-    def changeGrade(self,user,course,assignment,grade):
+    def change_grade(self,user,course,assignment,grade):
         self.users[user]['courses'][course][assignment]['grade'] = grade
         self.update_user_db()
+
+    def check_grades(self,name,course):
+        assignments = self.users[name]['courses'][course]
+        grades = []
+        for key in assignments:
+            grades.append([key, assignments[key]['grade']])
+        return grades
+
+
 

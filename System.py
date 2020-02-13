@@ -13,6 +13,11 @@ class System():
         self.users = self.load_user_db()
         self.courses = self.load_course_db()
 
+    def reload_data(self):
+        self.load_data()
+        self.usr.all_courses = self.courses
+        self.usr.users = self.users
+
     def load_user_db(self):
         with open('Data/users.json') as f:
             data = json.load(f)
@@ -43,7 +48,41 @@ class System():
 
 
 if __name__ == "__main__":
-    gradeSystem = System()
-    gradeSystem.login('akend3', '123454321')
-    gradeSystem.usr.submit_assignment('comp_sci','assignment1','Testing submit','1/1/20')
 
+    # Initializing system object and loading data from "DB"
+    gradeSystem = System()
+
+    # Logging in as a TA
+    gradeSystem.login('cmhbf5', 'bestTA')
+    # Changing grade of yted91
+    gradeSystem.usr.change_grade('yted91', 'software_engineering', 'assignment1', 0)
+    # Updating Data in system
+    gradeSystem.reload_data()
+    # Creating a new assignment
+    gradeSystem.usr.create_assignment('assignment3', '04/01/20', 'cloud_computing')
+    # Updating Data in system
+    gradeSystem.reload_data()
+
+    # Log in as Professor
+    gradeSystem.login('goggins', 'augurrox')
+    # Add a new student to a course
+    gradeSystem.usr.add_student('yted91', 'databases')
+    # Updating Data
+    gradeSystem.reload_data()
+    # Remove a student from a course
+    gradeSystem.usr.drop_student('hdjsr7', 'databases')
+    # Updating Data
+    gradeSystem.reload_data()
+
+    # Log in as a student
+    gradeSystem.login('hdjsr7', 'pass1234')
+    # Submit an assignment
+    gradeSystem.usr.submit_assignment('cloud_computing', 'assignment3','Blahhhhh', '03/01/20')
+    # Print the grades for software engineering
+    grades = gradeSystem.usr.check_grades('software_engineering')
+    print('\nGrades: ')
+    print(grades)
+    # Print the assignmets for databases
+    assignments = gradeSystem.usr.view_assignments('databases')
+    print('\nAssignments: ')
+    print(assignments)
