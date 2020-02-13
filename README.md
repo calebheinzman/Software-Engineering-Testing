@@ -47,7 +47,16 @@ Professor inherits Staff and contains all functions relevant to acitvities the p
 
 ## Assignment
 
-For this assignment you will need to use Pytest to write tests for the software we have provided. You will need to have 10 total tests and I should be able to run them on my system. Here are the following functions you will need to test:
+For this assignment you will need to use Pytest to write tests for the software we have provided. You will need to have 
+15 total tests and I should be able to run them on my system. For the first 10 tests I have chosen exactly what to test
+for. Five of these should pass and five of these should fail.
+
+For the last five tests, you will choose what to test for on your own. Design theses tests so that all five of them
+will fail. Think of things that a program like this might need to have. For instance, are there any limitations a 
+username or password should have when logging in? Are there any restrictions on which professors can add students to 
+certain courses? 
+
+Here are the first 10 tests you will need to create:
 
 ### 1. login - System.py
 
@@ -62,19 +71,44 @@ password returns correctly if the passwords are the same.
 ### 3. change_grade - Staff.py
 
 This function will change the grade of a student and updates the database. Verify that the correct grade is changed on 
-the correct user.
+the correct user in the database.
 
 ### 4. create_assignment Staff.py
 
 This function allows the staff to create a new assignment. Verify that an assignment is created with the correct due date
-in the correct course.
+in the correct course in the database.
 
 ### 5. add_student - Professor.py
 
-
+This function allows the professor to add a student to a course. Verify that a student will be added to the correct course
+in the database.
 
 ### 6. drop_student Professor.py
+
+This function allows the professor to drop a student in a course. Verify that the student is added and dropped from the correct course
+in the database.
+
 ### 7. submit_assignment - Student.py
+
+This function allows a student to submit an assignment. Verify that the database is updated with the correct assignment, 
+submission, submission dateand in the correct course.
+
 ### 8. check_ontime - Student.py
+
+This function checks if an assignment is submitted on time. Verify that it will return true if the assignment is on time,
+and false if the assignment is late.
+
 ### 9. check_grades - Student.py
+
+This function returns the users grades for a specific course. Verify the correct grades are returned for the correct user.
+
 ### 10. view_assignments - Student.py
+
+This function returns assignments and their due dates for a specific course. Verify that the correct assignments for the
+correct course are returned.
+
+## Grading 
+
+We will run 'pytest' in the directory with your tests. We will be looking for 5 total tests that pass and 10 total tests
+that fail. We will then review the code for each test to assure you created the tests correctly. You will be marked off
+for each test that does not work.
